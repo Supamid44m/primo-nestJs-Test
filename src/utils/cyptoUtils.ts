@@ -1,0 +1,36 @@
+import * as crypto from 'crypto';
+
+export class CryptoUtils {
+
+///u can genetate own private and public key at https://cryptotools.net/rsagen
+
+  static PRIVATE_KEY = process.env.PRIVATE_KEY || ""
+  static PUBLIC_KEY = process.env.PUBLIC_KEY || ""
+
+  static encryptWithPrivateKey(data: string): string {
+    const buffer = Buffer.from(data, 'utf8');
+    const encrypted = crypto.privateEncrypt(
+      {
+        key: CryptoUtils.PRIVATE_KEY,
+        padding: crypto.constants.RSA_PKCS1_PADDING,
+      },
+      buffer,
+    );
+    return encrypted.toString('base64');
+  }
+
+  static decryptWithPublicKey(
+    encryptedData: string,
+  ): string {
+
+    const buffer = Buffer.from(encryptedData, 'base64');
+    const decrypted = crypto.publicDecrypt(
+      {
+        key: CryptoUtils.PUBLIC_KEY,
+        padding: crypto.constants.RSA_PKCS1_PADDING,
+      },
+      buffer,
+    );
+    return decrypted.toString('utf8');
+  }
+}
