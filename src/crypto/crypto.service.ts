@@ -10,8 +10,6 @@ export class CryptoService {
   alogorithm = 'aes-256-cbc';
   iv = Buffer.from('1234567890abcdef');
 
-  // privateKey = CryptoUtils.PRIVATE_KEY;
-  // publicKey = CryptoUtils.PUBLIC_KEY;
 
   public async encryptData(data: string): Promise<EncrypResDto> {
     const response = new EncrypResDto();
@@ -41,7 +39,6 @@ export class CryptoService {
   private generateAESKey(): string {
     try {
       const key = crypto.randomBytes(32).toString('hex');
-
       return key;
     } catch (err) {
       throw new Error('Failed to generate AES key', { cause: err });
