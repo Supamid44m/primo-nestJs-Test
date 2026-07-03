@@ -7,13 +7,6 @@ import { DecrypReqDto } from './dto/decryp.req.dto';
 describe('CryptoController', () => {
   let controller: CryptoController;
 
-  const mockEncyptReq2500word: EncrypReqDto = {
-    payload: `The modern world is changing rapidly and continuous learning helps people adapt to new technologies improve their skills solve problems work effectively and create better opportunities for the future. The modern world is changing rapidly and continuous learning helps people adapt to new technologies improve their skills solve problems work effectively and create better opportunities for the future. The modern world is changing rapidly and continuous learning helps people adapt to new technologies improve their skills solve problems work effectively and create better opportunities for the future. The modern world is changing rapidly and continuous learning helps people adapt to new technologies improve their skills solve problems work effectively and create better opportunities for the future. The modern world is changing rapidly and continuous learning helps people adapt to new technologies improve their skills solve problems work effectively and 
-      create better opportunities for the future. The modern world is changing rapidly and continuous 
-      learning helps people adapt to new technologies improve their skills solve problems work effectively and create better opportunities for the future. 
-      The modern world is changing rapidly and continuous learning helps people adapt to new technologies improve their skills solve problems work effectively and create better opportunities for the future. The modern world is changing rapidly and continuous learning helps people adapt to new technologies improve their skills solve problems work effectively and create better opportunities for the future. The modern world is changing rapidly and continuous learning helps people adapt to new technologies improve their skills solve problems work effectively and create better opportunities for the future. The modern world is changing rapidly and continuous learning helps people adapt to new technologies improve their skills solve problems work effectively and create better opportunities for the future.`,
-  };
-
   const mockEncyptReq: EncrypReqDto = {
     payload: 'mart',
   };
@@ -51,6 +44,10 @@ describe('CryptoController', () => {
   });
 
   it('should not encrypt data when playload is more than 2000 word', () => {
+    const mockEncyptReq2500word: EncrypReqDto = {
+      payload: 'a'.repeat(2001)
+    };
+
     const result = controller.getEncryptData(mockEncyptReq2500word);
     expect(result.successful).toBeFalsy;
     expect(result.error_code).toBeDefined;
@@ -64,7 +61,7 @@ describe('CryptoController', () => {
   });
 
   it('should not decrypt data when some data is blank', () => {
-    const result = controller.getDecryptData({ data1: '', data2: '' });
+    const result = controller.getDecryptData({ data1: '', data2: 'test' });
     expect(result.successful).toBeFalsy;
     expect(result.error_code).toBeDefined;
     expect(result.data).toBeNull;
