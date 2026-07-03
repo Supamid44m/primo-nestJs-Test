@@ -11,7 +11,7 @@ export class ValidateDecryptRequest implements PipeTransform<DecrypReqDto> {
       throw new BadRequestException('Request body is required');
     }
 
-    if (typeof value.data1 !== 'string' || value.data2.trim() === '') {
+    if ((typeof value.data1 !== 'string' || value.data1.trim() === '') || (typeof value.data2 !== 'string' || value.data2.trim() === '')) {
       throw new BadRequestException('validate fail data1 or data2 should not empty');
     }
   }
