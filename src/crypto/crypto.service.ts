@@ -1,8 +1,8 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
 import * as crypto from 'crypto';
 import { EncrypResDto } from './dto/encryp.res.dto';
-import { CryptoUtils } from 'src/utils/cyptoUtils';
-import { ApiUtils } from 'src/utils/apiUtils';
+import { CryptoUtils } from '../utils/cyptoUtils';
+import { ApiUtils } from '../utils/apiUtils';
 import { DecrypResDto } from './dto/decryp.res.dto';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class CryptoService {
   alogorithm = 'aes-256-cbc';
   iv = Buffer.from('1234567890abcdef');
 
-  public async encryptData(data: string): Promise<EncrypResDto> {
+  public  encryptData(data: string): EncrypResDto {
     const response = new EncrypResDto();
     const isValid = ApiUtils.validateStringDataAndMaxLength(data);
     if (!isValid) {
@@ -69,10 +69,10 @@ export class CryptoService {
     }
   }
 
-  public async decryptRequestData(
+  public  decryptRequestData(
     aesKey: string,
     cipherText: string,
-  ): Promise<DecrypResDto> {
+  ): DecrypResDto {
     const response = new DecrypResDto();
     const isValid =
       ApiUtils.validateStringData(aesKey) &&

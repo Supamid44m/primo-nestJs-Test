@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode } from '@nestjs/common';
 import { CryptoService } from './crypto.service';import { EncrypReqDto } from './dto/encryp.req.dto';
 import { EncrypResDto } from './dto/encryp.res.dto';
 import { DecrypReqDto } from './dto/decryp.req.dto';
@@ -11,12 +11,14 @@ export class CryptoController {
 
 
   @Post("/get-encrypt-data")
-  public getEncryptData(@Body() body: EncrypReqDto): Promise<EncrypResDto> {
+  @HttpCode(200)
+  public getEncryptData(@Body() body: EncrypReqDto): EncrypResDto {
     return this.cryptoService.encryptData(body.payload || "");
   }
     
   @Post("/get-decrypt-data")
-  public getDecryptData(@Body() body: DecrypReqDto): Promise<DecrypResDto> {
+   @HttpCode(200)
+  public getDecryptData(@Body() body: DecrypReqDto): DecrypResDto {
     return this.cryptoService.decryptRequestData(body.data1, body.data2);
   }
 

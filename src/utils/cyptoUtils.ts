@@ -18,7 +18,7 @@ export class CryptoUtils {
       );
       return encrypted.toString('base64');
     } catch (error) {
-      throw new Error('Decryption failed', { cause: error });
+     throw new Error(error instanceof Error ? error.message : String(error));
     }
   }
 
@@ -34,7 +34,7 @@ export class CryptoUtils {
       );
       return decrypted.toString('utf8');
     } catch (error) {
-      throw new Error('Decryption failed', { cause: error });
+      throw new Error(error instanceof Error ? error.message : String(error));
     }
   }
 }
