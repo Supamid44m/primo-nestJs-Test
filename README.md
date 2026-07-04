@@ -80,8 +80,8 @@ example body
 use  method POST: {{host}}/crypto/get-decrypt-data
 example body 
 {
-    "data1":"kmlEaLPsH+kiDHq+A6SkFbWJEmrDV6hbqkc9Q/KE3skSuxOl1TN5Y5mJnU+uygc1rAuBOeWsxbs48cmlXpJC4oDFOtI0Obmd5LU+rY7WF5r7NEgDQp5aBPF/J8vNvHFqGZTUSIVfKZEH66H4KIH1K22tipTlPt4aDzlxNKsXIkw=",
-    "data2":"8afaca9620dc58d5856c3ab19212a64b"
+  "data1": "ThgUR9KkqNzlz1HaxTSCj26WcOvCITLha6fSjhK7r5O55tmYiIDp1OoHJBb0J1R9ufwvDL8NPwzqfi0Yhw8Z6w4ozEM6Pg5THgNneQrJuiCOxUawpYpFp3F2Z1zpXeEvLTjVALiAE6VxESKjDK5ocgCNtVzDgY+O5k3rkRWE5Hs=",
+  "data2": "ca6c61ce6414e316fa7f33f36c764b8b"
 }
 ```
 <!-- 
