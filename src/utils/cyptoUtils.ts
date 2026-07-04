@@ -1,10 +1,15 @@
 import * as crypto from 'crypto';
+import { PRIVATE_KEY_CONSTANT, PUBLIC_KEY_CONSTANT } from 'src/constant/key.constant';
 
 export class CryptoUtils {
   ///u can genetate own private and public key at https://cryptotools.net/rsagen
 
-  static PRIVATE_KEY = process.env.PRIVATE_KEY || '';
-  static PUBLIC_KEY = process.env.PUBLIC_KEY || '';
+  static PRIVATE_KEY =
+    process.env.PRIVATE_KEY ?? PRIVATE_KEY_CONSTANT;
+
+
+  static PUBLIC_KEY =
+    process.env.PUBLIC_KEY ?? PUBLIC_KEY_CONSTANT
 
   static encryptWithPrivateKey(data: string): string {
     try {
@@ -18,7 +23,7 @@ export class CryptoUtils {
       );
       return encrypted.toString('base64');
     } catch (error) {
-     throw new Error(error instanceof Error ? error.message : String(error));
+      throw new Error(error instanceof Error ? error.message : String(error));
     }
   }
 
