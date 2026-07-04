@@ -1,4 +1,4 @@
-<p align="center">
+<!-- <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
@@ -23,7 +23,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository. -->
 
 ## Project setup
 
@@ -57,6 +57,34 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+
+
+## api document with swagger ui
+```bash
+use   : {{host}}/api-docs
+```
+
+
+## for post test "get-encrypt-data" with http client 
+```bash
+use  method POST: {{host}}/crypto/get-encrypt-data
+example body 
+{
+    "payload": "primo world"
+}
+```
+
+
+## for post test "get-decrypt-data" with http client 
+```bash
+use  method POST: {{host}}/crypto/get-decrypt-data
+example body 
+{
+    "data1":"kmlEaLPsH+kiDHq+A6SkFbWJEmrDV6hbqkc9Q/KE3skSuxOl1TN5Y5mJnU+uygc1rAuBOeWsxbs48cmlXpJC4oDFOtI0Obmd5LU+rY7WF5r7NEgDQp5aBPF/J8vNvHFqGZTUSIVfKZEH66H4KIH1K22tipTlPt4aDzlxNKsXIkw=",
+    "data2":"8afaca9620dc58d5856c3ab19212a64b"
+}
+```
+<!-- 
 ## Deployment
 
 When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
@@ -95,4 +123,4 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE). -->
