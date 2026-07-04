@@ -8,13 +8,12 @@ describe('CryptoController', () => {
   let controller: CryptoController;
 
   const mockEncyptReq: EncrypReqDto = {
-    payload: 'mart',
+    payload: 'primo world',
   };
 
   const mockDecryptReq: DecrypReqDto = {
-    data1:
-      'akWetvbzkEPw0gpYUydjxUf1k4l654qGEhzMyK8mshqDBFARRDGkRN2xsr71VhfKI+ra+YlYeeZ38LwqW1jGkNCZm3oyHGaLpHW8wxYt+XoDl/msnrUMhRpSV9gQxtLhCq2NSO4ua85EtHa2Av2qdPzVqr7By9BKPl2yiMNSkPM=',
-    data2: '32e04bbed2f7f0aae7ceef3fcd7a76e8a1857de750730f668897f89d84fa848a',
+    data1:'ThgUR9KkqNzlz1HaxTSCj26WcOvCITLha6fSjhK7r5O55tmYiIDp1OoHJBb0J1R9ufwvDL8NPwzqfi0Yhw8Z6w4ozEM6Pg5THgNneQrJuiCOxUawpYpFp3F2Z1zpXeEvLTjVALiAE6VxESKjDK5ocgCNtVzDgY+O5k3rkRWE5Hs=',
+    data2:'ca6c61ce6414e316fa7f33f36c764b8b'
   };
 
   beforeEach(async () => {
